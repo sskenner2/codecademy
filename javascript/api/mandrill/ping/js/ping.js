@@ -4,8 +4,19 @@ function log(obj) {
 
 var m = new mandrill.Mandrill('fRuwp8srRLvKI28AEGmLCQ');
 
-m.users.ping(function(res) {
-  log(res);
-  },  function(err) {
-  log(err);
-  });
+var params = {
+  "message": {
+    "from_email":"sskenner@gmail.com",
+    "to":[{"email":"santana@codeblack.nyc"}],
+    "subject": "who is?",
+    "text": "i am"
+  }
+};
+
+function sendTheMail() {
+  m.messages.send(params, function(res) {
+      log(res);
+    },  function(err) {
+      log(err);
+    });
+}
