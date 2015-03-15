@@ -7,12 +7,40 @@ var m = new mandrill.Mandrill('fRuwp8srRLvKI28AEGmLCQ');
 var params = {
   "message": {
     "from_email":"sskenner@gmail.com",
-    "to":[ { "email":"santana@codeblack.nyc"} ],
+    "to":[ { "email":"santana@codeblack.nyc"}, {"email":"santana@igotittoo.org"} ],
     "subject": "HTML send e-mizzle",
-    "html":"<p>regular <b>BOLD</b> and <i>ITALICS</i> e-mizzle</p>",
+    "html":"*|COOLFRIEND|* <p>regular <b>BOLD</b> and <i>ITALICS</i> e-mizzle</p> *|YEARS|*",
     "auto_text": true,
     "track_opens": true,
-    "track_clicks": true
+    "track_clicks": true,
+    "merge_vars": [
+      {
+        "rcpt": "santana@igotittoo.org",
+        "vars": [
+          {
+            "name": "COOLFRIEND",
+            "content": "s@igotittoo"
+          },
+          {
+            "name": "YEARS",
+            "content": "5 awesome years"
+          }
+        ]
+      },
+      {
+        "rcpt": "santana@codeblack.nyc",
+        "vars": [
+          {
+            "name": "COOLFRIEND",
+            "content": "s@codeblack"
+          },
+          {
+            "name": "YEARS",
+            "content": "10 sick years"
+          }
+        ]
+      }
+    ]
   }
 };
 
