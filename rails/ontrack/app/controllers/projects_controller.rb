@@ -21,10 +21,21 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    respond_to do |format|
+      format.html # show.rhtml
+      format.json { render :json => @project.to_json }
+      # format.xml { render :xml => @project.to_xml }
+    end
   end
 
   # GET /projects/1/edit
   def edit
+    @project = Project.find(params[:id])
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @project }
+    end
   end
 
   # POST /projects
