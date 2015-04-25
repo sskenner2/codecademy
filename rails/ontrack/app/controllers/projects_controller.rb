@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html # show.rhtml
       format.json { render :json => @project.to_json }
-      # format.xml { render :xml => @project.to_xml }
+      format.xml { render :xml => @project.to_xml }
     end
   end
 
